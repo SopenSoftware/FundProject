@@ -1,0 +1,53 @@
+id                   
+project_id           
+department_id        
+leading_department_id
+correspondent_user_id
+approval_user_id     
+promotion_area_id    
+project_nr           
+short_name           
+name                 
+description          
+state                
+agenda_topic         
+approval_buha        
+claim_entry_date     
+buha_finish_date     
+project_finish_date  
+pr_contact_date      
+pr_opening_date      
+pr_other_date        
+decision_committee   
+payment_svn_rate     
+query_date           
+monthly_list         
+aquisition_state     
+
+Projekt
+
+MITGLIEDNR		project_nr		Projektnummer
+ZUSATZ_01						Projektverbund
+ART_MITGL		state			Status
+SONSTIGE_2		department_id	Referat
+SONSTIGE_3		leading_department_id	Federführ Referat
+ZUSATZ_02		name			Titel
+ZUSATZ_03		short_name		Kurztitel
+SONSTIGE_1		promotion_area_id	Förderbereich
+ZUSATZ_41		decision_committee		Gremium
+ZUSATZ_39						Beschlussdatum
+BEMERKUNG						Bemerkung
+ZUSATZ_28						BeantragteSumme
+ZUSATZ_85						vorgeschlagene Summe
+ZUSATZ_29						bewilligte Summe
+ZUSATZ_30							ausgezahlte Summe
+ZUSATZ_31							Restverpflichtung
+ZUSATZ_33							Finanzrahmen
+ZUSATZ_34							in Aussicht gestellt
+ZUSATZ_35		payment_svn_rate		Auszahlung vor SVN
+ZUSATZ_38		query_date				Anfrageeingang
+				monthly_list
+BEITR_DAT		claim_entry_date		Erstantragseingang
+EHRUNG_14							Folgeantragseingang
+ZUSATZ_42		buha_finish_date	rechnerischer Abschluß
+EHRUNG_8		project_finish_date	Projektabschluß

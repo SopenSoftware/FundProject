@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <model>FundProject_Model_Appropriation</model>
+    <plugin>FundProject_Import_AppropriationCsv</plugin>
+    <type>import</type>
+    <headline>1</headline>
+    <dryrun>0</dryrun>
+    <delimiter>;</delimiter>
+    <description>appropriation import</description>
+    <mapping>
+    	 <field>
+            <source>MITTELNR</source>
+            <destination>id</destination>
+        </field>
+        <field>
+            <source>MITGLIEDNR</source>
+            <destination>project_id</destination>
+        </field>
+        <field>
+            <source>MITTELNR</source>
+            <destination>appropriation_nr</destination>
+        </field>
+        <field>
+            <source>KATEGORIE</source>
+            <destination>funds_category_id</destination>
+        </field>
+        <field>
+            <source>MITTELART</source>
+            <destination>funds_kind_id</destination>
+        </field>
+        <field>
+            <source>BEZEICHNG</source>
+            <destination>name</destination>
+        </field>
+        <field>
+            <source>S_STATUS</source>
+            <destination>state</destination>
+        </field>
+		<field>
+            <source>UNGEWIDMET</source>
+            <destination>UMGEWIDMET</destination>
+        </field>
+		<field>
+            <source>GREMIUM</source>
+            <destination>decision_committee</destination>
+        </field>
+		<field>
+            <source>BETRAG</source>
+            <destination>amount</destination>
+        </field>
+		<field>
+            <source>VORSCHLAG</source>
+            <destination>proposal_amount</destination>
+        </field>
+		<field>
+            <source>BESCHLUSS</source>
+            <destination>decision_date</destination>
+        </field>
+		<field>
+            <source>EINGANG</source>
+            <destination>debit_position_date</destination>
+        </field>
+		
+    </mapping>
+</config>

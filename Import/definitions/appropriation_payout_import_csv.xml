@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <model>FundProject_Model_AppropriationPayout</model>
+    <plugin>FundProject_Import_AppropriationPayoutCsv</plugin>
+    <type>import</type>
+    <headline>1</headline>
+    <dryrun>0</dryrun>
+    <delimiter>;</delimiter>
+    <description>appropriation import</description>
+    <mapping>
+        <field>
+            <source>MITTELNR</source>
+            <destination>appropriation_id</destination>
+        </field>
+        <field>
+            <source>FREIGABE</source>
+            <destination>approval_payout_date</destination>
+        </field>
+        <field>
+            <source>S_STATUS</source>
+            <destination>payout_status</destination>
+        </field>
+        <field>
+            <source>AUSZAHLG</source>
+            <destination>payout_date</destination>
+        </field>
+        <field>
+            <source>BUCH_DAT</source>
+            <destination>booking_payout_date</destination>
+        </field>
+		<field>
+            <source>BUCH_TEXT</source>
+            <destination>booking_text</destination>
+        </field>
+		<field>
+            <source>BETRAG</source>
+            <destination>amount</destination>
+        </field>
+		</mapping>
+</config>
