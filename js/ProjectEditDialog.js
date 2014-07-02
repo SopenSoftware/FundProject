@@ -1,7 +1,7 @@
 Ext.namespace('Tine.FundProject');
 
 Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, {
-	
+
 	/**
 	 * @private
 	 */
@@ -11,7 +11,7 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
 	recordProxy: Tine.FundProject.projectBackend,
 	loadRecord: true,
 	evalGrants: false,
-	
+
 	initComponent: function(){
 		this.on('load',this.onLoadProject, this);
 		this.on('afterrender',this.onAfterRender,this);
@@ -34,20 +34,20 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
 			this.appropriationGrid.loadProject(this.record);
 			this.projectContactGrid.enable();
 			this.projectContactGrid.loadProject(this.record);
-			
+
 			this.appropriationPayoutGrid.enable();
 			this.appropriationPayoutGrid.loadProject(this.record);
-			
+
 			this.projectGrid.enable();
 			this.projectGrid.loadProject(this.record);
 		}
-		
+
 		if(Tine.Tinebase.common.hasRight('approval_buha', 'FundProject')){
 			Ext.getCmp('project_approval_buha').enable();
 		}
 	},
 	onAfterRender: function(){
-		
+
 	},
 	initDependentGrids: function(){
 		this.appropriationGrid = new Tine.FundProject.AppropriationGridPanel({
@@ -89,7 +89,7 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
             record_id: (this.record) ? this.record.id : '',
             record_model: this.appName + '_Model_' + this.recordClass.getMeta('modelName')
         });
-		this.documentsPanel =  new Tine.widgets.activities.DocumentsTabPanel({
+		this.documentsPanel =  new Tine.Document.DocumentsTabPanel({
             app: Tine.Tinebase.appMgr.get('FundProject'),
             record_id: (this.record) ? this.record.id : '',
             record_model: this.appName + '_Model_' + this.recordClass.getMeta('modelName')
@@ -99,7 +99,7 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
 	        region: 'center',
 			activeTab: 0,
 	        id: 'editMainTabPanel',
-	        layoutOnTabChange:true,  
+	        layoutOnTabChange:true,
 	        items:[
 	               this.appropriationGrid,
 	               this.appropriationPayoutGrid,
@@ -114,7 +114,7 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
 				height:600,
 				defaults: {
 		            border: false,
-		            frame: false            
+		            frame: false
 		        },
 		        items: [
 		            {
@@ -140,17 +140,17 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
 											       Tine.FundProject.ProjectForm.getColumnForm(
 													[[
 														fields.project_nr, fields.short_name, fields.project_id,fields.name, fields.id
-													],[  
+													],[
 													   	fields.department_id,fields.leading_department_id
-													],[  
+													],[
 													 	fields.promotion_area_id, fields.state, fields.decision_committee
 													],[
 													 	fields.aquisition_state, fields.agenda_topic
 												    ],[
 													    fields.approval_buha, fields.claim_entry_date, fields.buha_finish_date, fields.project_finish_date
-												    ],[  
+												    ],[
 													 	fields.amount, fields.proposal_amount
-													],[  
+													],[
 														fields.confirmed_amount, fields.payout_amount, fields.rest_amount
 												    ],[
 													   fields.pr_contact_date, fields.pr_opening_date,fields.pr_other_date, fields.query_date
@@ -161,11 +161,11 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
 										this.activitiesPanel,
 										this.documentsPanel
 										]
-										
+
 		            	       }]
-		            	    	   
+
 		            	       }
-		            	       
+
 		            	       ,
 		            tabPanel
 		        ]
@@ -200,9 +200,9 @@ Tine.FundProject.ProjectEditDialogPanel = Ext.extend(Ext.Panel, {
 				title:'Kontakte',
 				layout:'border',
 				app: Tine.Tinebase.appMgr.get('Addressbook')
-			}                 
+			}
 		];
-		
+
 		// use some fields from brevetation edit dialog
 		 var recordChooserPanel = {
 				 xtype:'panel',
@@ -255,7 +255,7 @@ Tine.FundProject.ProjectForm.getColumnForm = function(formFields){
         border: false,
         frame:true,
         items:[{xtype:'columnform',items:
-           formFields                               	
+           formFields
         }]
     };
 };
@@ -265,7 +265,7 @@ Ext.ns('Tine.FundProject.ProjectFormFields');
 Tine.FundProject.ProjectFormFields.get = function(){
 	return{
 		// hidden fields
-		id: 
+		id:
 			{xtype: 'hidden',id:'id',name:'id', disabled:true, width:1},
 		project_id:
 			Tine.FundProject.Custom.getRecordPicker('Project','project_project_id',{
@@ -413,7 +413,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 			    value:null,
 			    width: 600
 			},
-		approval_buha: 
+		approval_buha:
 			{
 				xtype: 'checkbox',
 				disabledClass: 'x-item-disabled-view',
@@ -428,7 +428,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 		claim_entry_date:
 		 	{
 	        	xtype: 'datefield',
-	            fieldLabel: 'Eingang Antrag', 
+	            fieldLabel: 'Eingang Antrag',
 	            disabledClass: 'x-item-disabled-view',
 	            id:'project_claim_entry_date',
 	            name:'claim_entry_date',
@@ -437,7 +437,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	     buha_finish_date:
 		 	{
 	        	xtype: 'datefield',
-	            fieldLabel: 'Rechn. Abschluß', 
+	            fieldLabel: 'Rechn. Abschluß',
 	            disabledClass: 'x-item-disabled-view',
 	            id:'project_buha_finish_date',
 	            name:'buha_finish_date',
@@ -446,7 +446,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	     project_finish_date:
 		 	{
 	        	xtype: 'datefield',
-	            fieldLabel: 'Projektabschluß', 
+	            fieldLabel: 'Projektabschluß',
 	            disabledClass: 'x-item-disabled-view',
 	            id:'project_project_finish_date',
 	            name:'project_finish_date',
@@ -455,7 +455,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	     pr_contact_date:
 		 	{
 	        	xtype: 'datefield',
-	            fieldLabel: 'Kontaktaufn. ÖA', 
+	            fieldLabel: 'Kontaktaufn. ÖA',
 	            disabledClass: 'x-item-disabled-view',
 	            id:'project_pr_contact_date',
 	            name:'pr_contact_date',
@@ -464,7 +464,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	     pr_opening_date:
 		 	{
 	        	xtype: 'datefield',
-	            fieldLabel: 'Eröffnung ÖA', 
+	            fieldLabel: 'Eröffnung ÖA',
 	            disabledClass: 'x-item-disabled-view',
 	            id:'project_pr_opening_date',
 	            name:'pr_opening_date',
@@ -473,7 +473,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	     pr_other_date:
 		 	{
 	        	xtype: 'datefield',
-	            fieldLabel: 'sonst. Termin ÖA', 
+	            fieldLabel: 'sonst. Termin ÖA',
 	            disabledClass: 'x-item-disabled-view',
 	            id:'project_pr_other_date',
 	            name:'pr_other_date',
@@ -482,7 +482,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	     query_date:
 		 	{
 	        	xtype: 'datefield',
-	            fieldLabel: 'Eingang Anfrage', 
+	            fieldLabel: 'Eingang Anfrage',
 	            disabledClass: 'x-item-disabled-view',
 	            id:'project_query_date',
 	            name:'query_date',
@@ -491,7 +491,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	    amount:
 			{
 		 		xtype: 'sopencurrencyfield',
-		    	fieldLabel: 'Beantr. Betrag', 
+		    	fieldLabel: 'Beantr. Betrag',
 			    id:'project_amount',
 			    name:'amount',
 			    disabled:true,
@@ -502,7 +502,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 		proposal_amount:
 			{
 		 		xtype: 'sopencurrencyfield',
-		    	fieldLabel: 'Vorschlagssumme', 
+		    	fieldLabel: 'Vorschlagssumme',
 			    id:'project_proposal_amount',
 			    name:'proposal_amount',
 		    	disabledClass: 'x-item-disabled-view',
@@ -513,7 +513,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	    confirmed_amount:
 			{
 		 		xtype: 'sopencurrencyfield',
-		    	fieldLabel: 'Bew. Betrag', 
+		    	fieldLabel: 'Bew. Betrag',
 			    id:'project_confirmed_amount',
 			    name:'confirmed_amount',
 		    	disabledClass: 'x-item-disabled-view',
@@ -524,7 +524,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 	    payout_amount:
 			{
 		 		xtype: 'sopencurrencyfield',
-		    	fieldLabel: 'Ausgez. Betrag', 
+		    	fieldLabel: 'Ausgez. Betrag',
 			    id:'project_payout_amount',
 			    name:'payout_amount',
 		    	disabledClass: 'x-item-disabled-view',
@@ -535,7 +535,7 @@ Tine.FundProject.ProjectFormFields.get = function(){
 		 rest_amount:
 			{
 		 		xtype: 'sopencurrencyfield',
-		    	fieldLabel: 'Restbetrag', 
+		    	fieldLabel: 'Restbetrag',
 			    id:'project_rest_amount',
 			    name:'rest_amount',
 		    	disabledClass: 'x-item-disabled-view',
