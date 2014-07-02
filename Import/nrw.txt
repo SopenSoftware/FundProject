@@ -1,3 +1,18 @@
+
+Tabellen:
+
+Projekte -> MITGLIED
+Auszahlungen-> mgl_n_04
+Bewilligungen(Mitteländerungen)-> mgl_n_20
+Mittel-> mgl_n_03
+Adresszuordnungen -> mgl_n_02
+
+
+Projektrollen:
+-> STANDORT log. Feld kennzeichnet Rolle Standort
+-> Hauptadresse: ZUSATZ_29
+
+-----------------------
 id                   
 project_id           
 department_id        
@@ -36,7 +51,7 @@ ZUSATZ_03		short_name		Kurztitel
 SONSTIGE_1		promotion_area_id	Förderbereich
 ZUSATZ_41		decision_committee		Gremium
 ZUSATZ_39						Beschlussdatum
-BEMERKUNG						Bemerkung
+BEMERKUNG		description		Bemerkung
 ZUSATZ_28						BeantragteSumme
 ZUSATZ_85						vorgeschlagene Summe
 ZUSATZ_29						bewilligte Summe
@@ -51,3 +66,14 @@ BEITR_DAT		claim_entry_date		Erstantragseingang
 EHRUNG_14							Folgeantragseingang
 ZUSATZ_42		buha_finish_date	rechnerischer Abschluß
 EHRUNG_8		project_finish_date	Projektabschluß
+
+
+
+
+----------------
+cleanup:
+TRUNCATE TABLE sopen_fp_appropriation_payout;
+TRUNCATE TABLE sopen_fp_appropriation_change;
+TRUNCATE TABLE sopen_fp_appropriation;
+TRUNCATE TABLE sopen_fp_project_contact;
+TRUNCATE TABLE sopen_fp_project;

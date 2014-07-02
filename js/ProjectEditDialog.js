@@ -89,6 +89,11 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
             record_id: (this.record) ? this.record.id : '',
             record_model: this.appName + '_Model_' + this.recordClass.getMeta('modelName')
         });
+		this.documentsPanel =  new Tine.widgets.activities.DocumentsTabPanel({
+            app: Tine.Tinebase.appMgr.get('FundProject'),
+            record_id: (this.record) ? this.record.id : '',
+            record_model: this.appName + '_Model_' + this.recordClass.getMeta('modelName')
+        });
 		var fields = Tine.FundProject.ProjectFormFields.get();
 		var tabPanel = new Ext.TabPanel({
 	        region: 'center',
@@ -153,7 +158,8 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
 												)]
 										},
 
-										this.activitiesPanel
+										this.activitiesPanel,
+										this.documentsPanel
 										]
 										
 		            	       }]
