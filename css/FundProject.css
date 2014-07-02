@@ -1,1 +1,5 @@
 @CHARSET "ISO-8859-1";
+
+.icon-addFolder {
+    background: url("images/folder_add.png") no-repeat !important;
+}
