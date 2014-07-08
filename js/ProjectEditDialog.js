@@ -91,8 +91,8 @@ Tine.FundProject.ProjectEditDialog = Ext.extend(Tine.widgets.dialog.EditDialog, 
         });
 		this.documentsPanel =  new Tine.Document.DocumentsTabPanel({
             app: Tine.Tinebase.appMgr.get('FundProject'),
-            record_id: (this.record) ? this.record.id : '',
             record: this.record,
+            parent_id: Tine.Document.registry.get('config').fundproject_id,
             record_model: this.appName + '_Model_' + this.recordClass.getMeta('modelName')
         });
 		var fields = Tine.FundProject.ProjectFormFields.get();
